@@ -1,30 +1,18 @@
-// This file is the descriptor for the Custom code recipe create-project
 {
-    // Meta data for display purposes
     "meta": {
-        // label: name of the recipe as displayed, should be short
         "label": "Open pool",
-        // description: longer string to help end users understand what this recipe does
         "description": "Opens Toloka pool",
-        // icon: must be one of the FontAwesome 3.2.1 icons, complete list here at https://fontawesome.com/v3.2.1/icons/
         "icon": "icon-puzzle-piece"
     },
 
     "kind": "PYTHON",
     
-
-    // Inputs and outputs are defined by roles. In the recipe's I/O tab, the user can associate one
-    // or more dataset to each input and output role.
-
-    // The "arity" field indicates whether the user can associate several datasets to the role ('NARY')
-    // or at most one ('UNARY'). The "required" field indicates whether the user is allowed to
-    // associate no dataset with the role.
     "selectableFromFolder": "input_folder",
     "inputRoles": [
         {
             "name": "input_folder",
             "label": "Input Folder",
-            "description": "Folder containing created pool configuration",
+            "description": "A folder containing the created pool or training configuration file",
             "arity": "UNARY",
             "required": true,
             "acceptsDataset": false,
@@ -36,7 +24,7 @@
         {
             "name": "output_folder",
             "label": "output folder",
-            "description": "Folder to output pool config",
+            "description": "A folder to write an opened pool or training configuration file",
             "arity": "UNARY",
             "required": true,
             "acceptsDataset": false,
@@ -44,21 +32,12 @@
         }
     ],
 
-    /* The field "params" holds a list of all the params
-       for wich the user will be prompted for values in the Settings tab of the recipe.
-
-       The available parameter types include:
-       STRING, STRINGS, INT, DOUBLE, BOOLEAN, SELECT, MULTISELECT, MAP, TEXTAREA, PRESET, COLUMN, COLUMNS
-
-       For the full list and for more details, see the documentation: https://doc.dataiku.com/dss/latest/plugins/reference/params.html
-    */
-
     "params": [
         {
             "name": "input_config_filename",
             "label": "Input config filename",
             "type": "STRING",
-            "description": "JSON file name with created pool config",
+            "description": "JSON file name with created pool/training config",
             "defaultValue": "pool.json",
             "mandatory": true
         },
@@ -66,18 +45,11 @@
             "name": "output_pool_config_filename",
             "label": "Output pool config filename",
             "type": "STRING",
-            "description": "File to output opened pool config",
+            "description": "JSON file name to write opened pool or training configuration file",
             "defaultValue": "pool.json",
             "mandatory": true
         }
     ],
 
-    // The field "resourceKeys" holds a list of keys that allows to limit the number
-    // of concurrent executions and activities triggered by this recipe.
-    //
-    // Administrators can configure the limit per resource key in the Administration > Settings > Flow build
-    // screen.
-
     "resourceKeys": []
-
 }
