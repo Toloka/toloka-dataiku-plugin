@@ -1,0 +1,38 @@
+{
+    "id": "toloka-dataiku-plugin",
+    "version": "0.0.1",
+    "meta": {
+        "label": "Toloka Dataiku plugin",
+        "description": "Use Toloka to get your data labeled from Dataiku via Python API.",
+        "author": "Toloka AI Inc.",
+        "icon": "icon-puzzle-piece",
+        "tags": ["Labeling", "Machine Learning", "Deep Learning", "Data Preparation"],
+        "url": "https://github.com/Toloka/toloka-dataiku-plugin",
+        "licenseInfo": "Apache Software License",
+        "supportLevel": "PARTNER_SUPPORTED"
+    },
+    "params": [
+        {
+            "type": "SELECT",
+            "name": "environment",
+            "label": "Toloka environment: Production or Sandbox",
+            "selectChoices": [
+                {
+                    "value": "PRODUCTION",
+                    "label": "Toloka Production environment (toloka.ai)"
+                },
+                {
+                    "value": "SANDBOX",
+                    "label": "Toloka Sandbox environment (sandbox.toloka.ai)"
+                }
+            ],
+            "defaultValue": "PRODUCTION"
+        },
+        {
+            "type": "PASSWORD",
+            "name": "token",
+            "label": "Toloka API Token",
+            "mandatory": true
+        }
+    ]
+}

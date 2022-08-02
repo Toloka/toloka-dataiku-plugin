@@ -1,0 +1,21 @@
+{
+  "acceptedPythonInterpreters": ["PYTHON37", "PYTHON38", "PYTHON39", "PYTHON310"],
+  "forceConda": false,
+  "installCorePackages": true,
+  "corePackagesSet": "PANDAS11",
+  "installJupyterSupport": false,
+  "envSettings": {
+    "inheritGlobalSettings": true,
+    "condaInstallExtraOptions": [],
+    "condaCreateExtraOptions": [],
+    "pipInstallExtraOptions": [],
+    "virtualenvCreateExtraOptions": [],
+    "cranMirrorURL": "https://cloud.r-project.org"
+  },
+  "usableByAll": true,
+  "permissions": [],
+  "allContainerConfs": false,
+  "containerConfs": [],
+  "allSparkKubernetesConfs": false,
+  "sparkKubernetesConfs": []
+}

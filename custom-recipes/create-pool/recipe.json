@@ -1,0 +1,137 @@
+// This file is the descriptor for the Custom code recipe create-project
+{
+    // Meta data for display purposes
+    "meta": {
+        // label: name of the recipe as displayed, should be short
+        "label": "Create pool",
+        // description: longer string to help end users understand what this recipe does
+        "description": "Creates pool in Toloka project",
+        // icon: must be one of the FontAwesome 3.2.1 icons, complete list here at https://fontawesome.com/v3.2.1/icons/
+        "icon": "icon-puzzle-piece"
+    },
+
+    "kind": "PYTHON",
+    
+
+    // Inputs and outputs are defined by roles. In the recipe's I/O tab, the user can associate one
+    // or more dataset to each input and output role.
+
+    // The "arity" field indicates whether the user can associate several datasets to the role ('NARY')
+    // or at most one ('UNARY'). The "required" field indicates whether the user is allowed to
+    // associate no dataset with the role.
+    "selectableFromFolder": "input_folder",
+    "inputRoles": [
+        {
+            "name": "input_folder",
+            "label": "Input Folder",
+            "description": "Folder containing pool configuration.",
+            "arity": "UNARY",
+            "required": true,
+            "acceptsDataset": false,
+            "acceptsManagedFolder": true
+        },
+        {
+            "name": "project_config_folder",
+            "label": "Project config folder",
+            "description": "Folder containing file with project config",
+            "arity": "UNARY",
+            "required": true,
+            "acceptsDataset": false,
+            "acceptsManagedFolder": true
+        },
+        {
+            "name": "training_config_folder",
+            "label": "Training config folder",
+            "description": "Folder containing file with created training config",
+            "arity": "UNARY",
+            "acceptsDataset": false,
+            "acceptsManagedFolder": true
+        }
+    ],
+
+    "outputRoles": [
+        {
+            "name": "output_folder",
+            "label": "output folder",
+            "description": "Folder to output",
+            "arity": "UNARY",
+            "required": true,
+            "acceptsDataset": false,
+            "acceptsManagedFolder": true
+        }
+    ],
+
+    /* The field "params" holds a list of all the params
+       for wich the user will be prompted for values in the Settings tab of the recipe.
+
+       The available parameter types include:
+       STRING, STRINGS, INT, DOUBLE, BOOLEAN, SELECT, MULTISELECT, MAP, TEXTAREA, PRESET, COLUMN, COLUMNS
+
+       For the full list and for more details, see the documentation: https://doc.dataiku.com/dss/latest/plugins/reference/params.html
+    */
+
+    "params": [
+        {
+            "name": "input_config_filename",
+            "label": "Input config filename",
+            "type": "STRING",
+            "description": "JSON file name with project config",
+            "defaultValue": "pool.json",
+            "mandatory": true
+        },
+        {
+            "name": "input_project_filename",
+            "label": "Input project filename",
+            "type": "STRING",
+            "description": "JSON file name with created project config",
+            "defaultValue": "project.json",
+            "mandatory": true
+        },
+        {
+            "name": "input_training_filename",
+            "label": "Input training filename",
+            "type": "STRING",
+            "description": "JSON file name with created training config",
+            "defaultValue": "training.json"
+        },
+        {
+            "name": "pool_expiration_datetime",
+            "label": "Pool expiration date and time",
+            "type": "STRING",
+            "description": "Pool expiration date and time in ISO-8601 format"
+        },
+        {
+            "name": "pool_expiration_days",
+            "label": "Pool expiration in days",
+            "type": "INT",
+            "description": "Pool expiration in days (at least 1 day)",
+            "minI": 1,
+            "default": 7
+        },
+        {
+            "name": "pool_reward_per_assignment",
+            "label": "Pool reward per assignment",
+            "type": "DOUBLE",
+            "description": "Pool reward per assigmnent in dollars (at least $0.005)",
+            "minD": 0.005,
+            "default": 0.01
+        },
+        {
+            "name": "output_pool_filename",
+            "label": "Output pool config filename",
+            "type": "STRING",
+            "description": "File to write pool config",
+            "defaultValue": "pool.json",
+            "mandatory": true
+        }
+    ],
+
+    // The field "resourceKeys" holds a list of keys that allows to limit the number
+    // of concurrent executions and activities triggered by this recipe.
+    //
+    // Administrators can configure the limit per resource key in the Administration > Settings > Flow build
+    // screen.
+
+    "resourceKeys": []
+
+}
