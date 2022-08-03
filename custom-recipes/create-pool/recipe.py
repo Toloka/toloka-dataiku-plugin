@@ -1,5 +1,3 @@
-
-
 # import the classes for accessing DSS objects from the recipe
 import dataiku
 # Import the helpers for custom recipes
@@ -19,9 +17,10 @@ project_config_folder = dataiku.Folder(get_input_names_for_role('project_config_
 input_project_filename = get_recipe_config().get('input_project_filename')
 project = project_config_folder.read_json(input_project_filename)
 
-training_config_folder = get_input_names_for_role('training_config_folder')[0]
+training_config_folder = get_input_names_for_role('training_config_folder')
 input_training_filename = get_recipe_config().get('input_training_filename')
 if training_config_folder and input_training_filename:
+    training_config_folder = training_config_folder[0]
     training_folder = dataiku.Folder(training_config_folder)
     training = training_folder.read_json(input_training_filename)
 else:
